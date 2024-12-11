@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:49:10 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 13:49:11 by oabdelka         ###   ########.fr       */
+/*   Created: 2024/12/11 13:05:24 by oabdelka          #+#    #+#             */
+/*   Updated: 2024/12/11 13:06:34 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "zombie.hpp"
 
-int main(int ac, char **av)
-{
-    if (ac < 2)
-        std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-    else
-    {
-        for (int i = 1; av[i]; i++)
-        {
-            for (int j = 0; av[i][j]; j++)
-            {
-                char c = toupper(av[i][j]);
-                std::cout<<c;
-            }
-            std::cout<<" ";
-        }
-        std::cout<<"\n";
-    }
+// Function to create a Zombie on the stack and announce it
+void randomChump(std::string name) {
+    Zombie z(name);
+    z.announce();
 }

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:49:10 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 13:49:11 by oabdelka         ###   ########.fr       */
+/*   Created: 2024/12/11 13:05:19 by oabdelka          #+#    #+#             */
+/*   Updated: 2024/12/11 13:06:25 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "zombie.hpp"
 #include <iostream>
 
-int main(int ac, char **av)
-{
-    if (ac < 2)
-        std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-    else
-    {
-        for (int i = 1; av[i]; i++)
-        {
-            for (int j = 0; av[i][j]; j++)
-            {
-                char c = toupper(av[i][j]);
-                std::cout<<c;
-            }
-            std::cout<<" ";
-        }
-        std::cout<<"\n";
-    }
+// Function Prototypes
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
+
+int main() {
+    // Create a Zombie on the heap
+    Zombie* heapZombie = newZombie("HeapZombie");
+    heapZombie->announce();
+
+    // Create a Zombie on the stack
+    randomChump("StackZombie");
+
+    // Clean up heap-allocated Zombie
+    delete heapZombie;
+
+    return 0;
 }
