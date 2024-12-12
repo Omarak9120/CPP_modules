@@ -6,13 +6,13 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:16:58 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/12 14:16:59 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:02:04 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-// Constructor Implementation
+// Constructor
 Sed::Sed(const std::string& s1, const std::string& s2) : s1(s1), s2(s2) {}
 
 // Function to replace all occurrences of s1 with s2 in the input string
