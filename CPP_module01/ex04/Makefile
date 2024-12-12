@@ -1,15 +1,15 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Zombie.cpp zombieHorde.cpp
-OBJ = main.o Zombie.o zombieHorde.o
-NAME = ZombieHorde
+SRC = main.cpp Sed.cpp
+OBJ = main.o Sed.o
+NAME = sed_replace
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp Sed.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

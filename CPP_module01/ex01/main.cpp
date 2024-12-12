@@ -6,11 +6,11 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:07:19 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 15:10:23 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:56:05 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 #include <iostream>
 #include <limits>
 

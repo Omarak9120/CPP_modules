@@ -6,11 +6,11 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:27:15 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 15:27:16 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/11 16:56:01 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 #include <iostream>
 
 // Function to create a horde of Zombies
