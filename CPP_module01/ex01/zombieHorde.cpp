@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:27:15 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 16:56:01 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:01:12 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // Function to create a horde of Zombies
 Zombie* zombieHorde(int N, std::string name) {
     if (N <= 0) {
-        std::cerr << "Error: Number of zombies must be positive." << std::endl;
+        std::cerr << "Error : Number of zombies must be positive." << std::endl;
         return NULL;
     }
 
