@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 11:55:40 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/12 11:55:41 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:47:30 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ Weapon::Weapon(std::string type) : type(type) {}
 
 // Getter Implementation
 const std::string& Weapon::getType() const {
-    return type;
+	return type;
 }
 
 // Setter Implementation
 void Weapon::setType(std::string type) {
-    this->type = type;
+	this->type = type;
 }

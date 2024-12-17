@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 15:27:11 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/13 13:47:58 by oabdelka         ###   ########.fr       */
+/*   Created: 2024/12/17 18:14:04 by oabdelka          #+#    #+#             */
+/*   Updated: 2024/12/17 18:21:45 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include <iostream>
+#include "Fixed.hpp"
 
-#include <string>
-
-class Zombie {
-private:
-	std::string name;
-
-public:
-	// Constructors
-	Zombie();
-	Zombie(std::string name);
-
-	// Destructor
-	~Zombie();
-
-	// Member Functions
-	void announce(void);
-	void setName(std::string name);
-};
-
-#endif // ZOMBIE_HPP
+int main( void ) {
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
+}

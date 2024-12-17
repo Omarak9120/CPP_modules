@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 11:55:34 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/12 11:55:55 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:47:35 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 class HumanB {
 private:
-    std::string name;
-    Weapon* weapon; // Pointer allows HumanB to be unarmed initially
+	std::string name;
+	Weapon* weapon; // Pointer allows HumanB to be unarmed initially
 
 public:
-    // Constructor
-    HumanB(std::string name);
+	// Constructor
+	HumanB(std::string name);
 
-    // Setter for weapon
-    void setWeapon(Weapon& weapon);
+	// Setter for weapon
+	void setWeapon(Weapon& weapon);
 
-    // Attack function
-    void attack() const;
+	// Attack function
+	void attack() const;
 };
 
 #endif

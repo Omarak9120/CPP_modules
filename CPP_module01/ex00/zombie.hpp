@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:05:29 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/11 13:05:30 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:48:23 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 
 class Zombie {
 private:
-    std::string name;
+	std::string name;
 
 public:
-    // Constructor
-    Zombie(std::string name);
+	// Constructor
+	Zombie(std::string name);
 
-    // Destructor
-    ~Zombie();
+	// Destructor
+	~Zombie();
 
-    // Member Function
-    void announce(void);
+	// Member Function
+	void announce(void);
 };
 
 #endif // ZOMBIE_HPP
