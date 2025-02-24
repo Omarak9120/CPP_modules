@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:07:40 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/13 13:46:28 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:48:54 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Harl::complain( std::string level ) {
 	void (Harl::*func_ptr)() = NULL;
 
 	// Array of levels and corresponding member function pointers
-  void (Harl::*functions[])(void) = {
+  	void (Harl::*functions[])(void) = {
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,

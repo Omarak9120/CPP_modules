@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:49:10 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/02/23 17:14:20 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/02/23 21:02:45 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/02/24 13:31:04 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main(int ac, char **av)
-{
-	if (ac < 2)
-		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-	else
-	{
-		for (int i = 1; av[i]; i++)
-		{
-			for (int j = 0; av[i][j]; j++)
-			{
-				char c = toupper(av[i][j]);
-				std::cout<<c;
-			}
-			std::cout<<" ";
-		}
-		std::cout<<"\n";
-	}
-}
+#include <iostream>
+#include "ClapTrap.hpp"
+
+
+class FragTrap : virtual public ClapTrap {
+	public:
+		FragTrap(void);
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &c);
+		~FragTrap();
+		FragTrap &operator=(const FragTrap &c);
+		void highFivesGuys(void);
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:29:15 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/18 15:29:18 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:01:26 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,11 @@ Fixed Fixed::operator-(const Fixed &other) const {
     return result;
 }
 
+/*
+    Fixed-point numbers are stored as scaled integers.
+    Multiplying two scaled numbers doubles the scale, 
+    so we must shift back by _fractionalBits (8) to get the correct result.
+*/
 Fixed Fixed::operator*(const Fixed &other) const {
     // Multiplying two fixed-point numbers:
     // (this * other) = (this_raw * other_raw) / 2^(fractionalBits = 8)
@@ -114,6 +119,7 @@ Fixed Fixed::operator*(const Fixed &other) const {
     return result;
 }
 
+/*Before dividing, we scale up to maintain precision.*/
 Fixed Fixed::operator/(const Fixed &other) const {
     // Dividing two fixed-point numbers:
     // (this / other) = (this_raw * 2^(fractionalBits)) / other_raw

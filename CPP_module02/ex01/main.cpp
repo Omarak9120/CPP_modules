@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:12:27 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/18 13:20:53 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:49:16 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int main(void)
     std::cout << "c is " << c << std::endl;
     std::cout << "d is " << d << std::endl;
 
+    std::cout << "\n **Using toFloat() Function** \n";
+    std::cout << "a.toFloat() = " << a.toFloat() << std::endl;
+    std::cout << "b.toFloat() = " << b.toFloat() << std::endl;
+    std::cout << "c.toFloat() = " << c.toFloat() << std::endl;
+    std::cout << "d.toFloat() = " << d.toFloat() << std::endl;
+    
+    std::cout << "\n **Converting to Integer using toInt()** \n";
     std::cout << "a is " << a.toInt() << " as integer" << std::endl;
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
