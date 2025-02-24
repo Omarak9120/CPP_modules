@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:08:09 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/12/18 12:07:20 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:32:28 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@
 
 class Fixed {
 private:
-    int                 _fixedPointValue;
-    static const int    _fractionalBits = 8;
+	int                 _fixedPointValue;
+	static const int    _fractionalBits = 8;
 
 public:
-    // Orthodox Canonical Form
-    Fixed();                                 // Default Constructor
-    Fixed(const Fixed &other);               // Copy Constructor
-    Fixed& operator=(const Fixed &other);    // Copy Assignment Operator
-    ~Fixed();                                // Destructor
+	// Orthodox Canonical Form
+	Fixed();                                 // Default Constructor
+	Fixed(const Fixed &other);               // Copy Constructor
+	Fixed& operator=(const Fixed &other);    // Copy Assignment Operator
+	~Fixed();                                // Destructor
 
-    // Additional Constructors
-    Fixed(const int intValue);               // Integer Constructor
-    Fixed(const float floatValue);           // Floating-Point Constructor
+	// Additional Constructors
+	Fixed(const int intValue);               // Integer Constructor
+	Fixed(const float floatValue);           // Floating-Point Constructor
 
-    // Member Functions
-    int     getRawBits(void) const;
-    void    setRawBits(int const raw);
-    float   toFloat(void) const;
-    int     toInt(void) const;
+	// Member Functions
+	int     getRawBits(void) const;
+	void    setRawBits(int const raw);
+	float   toFloat(void) const;
+	int     toInt(void) const;
 };
 
 // Overload of the insertion operator
