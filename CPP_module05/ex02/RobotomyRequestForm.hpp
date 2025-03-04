@@ -5,24 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 02:58:05 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/04 02:58:07 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/03/04 22:40:56 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/03/04 22:41:00 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include <iostream>
+#include <fstream>  // Needed for file output
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 class RobotomyRequestForm : public AForm {
-private:
-	std::string target;
-
 public:
-	RobotomyRequestForm(std::string target);
+	// Constructors & Destructor
+	RobotomyRequestForm();
+	RobotomyRequestForm(const std::string& target);
+	RobotomyRequestForm(const RobotomyRequestForm& other);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 	~RobotomyRequestForm();
 
+	class FormNotSignedException : public std::exception {
+		public:
+		const char* what() const throw() {
+				return "Form not signed!";
+			}
+		};
+
+	// Override execute function
 	void execute(Bureaucrat const &executor) const;
 };
 

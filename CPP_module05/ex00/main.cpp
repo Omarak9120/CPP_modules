@@ -5,37 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 22:27:36 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/03 23:55:45 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/03/04 22:32:47 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/03/04 22:32:50 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include <iostream>
 
 int main() {
-    try {
-        Bureaucrat bob("omar1", 75);
-        std::cout << bob;
-        
-        bob.incrementGrade();
-		bob.decrementGrade();
-        std::cout << "After incrementing,grade: " << bob;
+	try {
+		Bureaucrat b1("Alice", 1);
+		Bureaucrat b2("Bob", 150);
 
-        Bureaucrat alice("omar2", 1);
-        std::cout << alice;
-        alice.incrementGrade();
-    } catch (const Bureaucrat::GradeTooHighException &e) {
-        std::cerr << "Caught exception: " << e.what() << std::endl;
-    }
+		std::cout << b1 << std::endl;
+		std::cout << b2 << std::endl;
 
-    try {
-        Bureaucrat charlie("omar3", 150);
-        std::cout << charlie << std::endl;
-        charlie.decrementGrade(); 
-    } catch (const Bureaucrat::GradeTooLowException &e) {
-        std::cerr << "Caught exception: " << e.what() << std::endl;
-    }
+		b1.decrementGrade();
+		b2.incrementGrade();
+		
+		std::cout << "After modification:" << std::endl;
+		std::cout << b1 << std::endl;
+		std::cout << b2 << std::endl;
 
-    return 0;
+		Bureaucrat b3("Charlie", 151);
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+
+	return 0;
 }

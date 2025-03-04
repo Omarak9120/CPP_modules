@@ -5,24 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 02:57:53 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/04 02:57:54 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/03/04 22:40:45 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/03/04 22:40:48 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <fstream>
+#include <cstdlib>  // For rand() and srand()
+#include <ctime>    // For time()
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: AForm("PresidentialPardonForm", 25, 5), target(target) {}
+// Default constructor
+PresidentialPardonForm::PresidentialPardonForm()
+	: AForm("PresidentialPardonForm", 25, 5) {}
 
-PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout << "PresidentialPardonForm destroyed" << std::endl;
+// Parameterized constructor
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+	: AForm(target, 25, 5) {}
+
+// Copy constructor
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+	: AForm(other) {}
+
+// Assignment operator
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) {
+	if (this != &other)
+		AForm::operator=(other);
+	return *this;
 }
 
+// Destructor
+PresidentialPardonForm::~PresidentialPardonForm() {}
+
+// Execute function to generate ASCII trees
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
-	if (executor.getGrade() > getGrade_execute())
+	// Check if the Bureaucrat has permission
+	if (!this->getIsSigned())
+		throw PresidentialPardonForm::FormNotSignedException();
+	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 
-	std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
 }

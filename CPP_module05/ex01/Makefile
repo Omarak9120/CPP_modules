@@ -1,32 +1,26 @@
+# Compiler and flags
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
+
+# Executable name
 NAME = 01
 
-SRCS = Form.cpp		\
-	   Bureaucrat.cpp	\
-	   main.cpp		\
+# Source files
+SRC = Bureaucrat.cpp Form.cpp main.cpp
+OBJ = $(SRC:.cpp=.o)
 
-OBJDIR = objs
-OBJCS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
-
-
-CC = g++
-
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-
+# Compilation rules
 all: $(NAME)
 
-$(OBJDIR): 
-	mkdir -p $(OBJDIR)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-$(NAME): $(OBJDIR) $(OBJCS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJCS) 
+%.o: %.cpp $(INCLUDES)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJDIR)/%.o: %.cpp
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
-
+# Cleanup rules
 clean:
-	rm -f $(OBJCS)
-	rm -rf $(OBJDIR)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

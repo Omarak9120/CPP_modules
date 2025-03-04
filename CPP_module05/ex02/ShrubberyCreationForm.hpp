@@ -5,26 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 02:58:13 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/04 02:58:16 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/03/04 22:41:04 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/03/04 22:50:30 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
-#include "AForm.hpp"
 #include <iostream>
+#include <fstream>// Needed for file output
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm {
-	private:
-		std::string target;
+public:
+	// Constructors & Destructor
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const std::string& target);
+	ShrubberyCreationForm(const ShrubberyCreationForm& other);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+	~ShrubberyCreationForm();
 
-	public:
-	public:
-		ShrubberyCreationForm(std::string target);
-		~ShrubberyCreationForm();
-		void execute(Bureaucrat const &executor) const;
+	class FormNotSignedException : public std::exception {
+		public:
+		const char* what() const throw() {
+				return "Form not signed!";
+			}
+		};
+
+	// Override execute function
+	void execute(Bureaucrat const &executor) const;
 };
 
 #endif

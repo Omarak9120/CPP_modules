@@ -5,59 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 02:57:49 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/04 02:57:50 by oabdelka         ###   ########.fr       */
+/*   Created: 2025/03/04 22:40:38 by oabdelka          #+#    #+#             */
+/*   Updated: 2025/03/04 22:40:39 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include "Bureaucrat.hpp"
-// #include "ShrubberyCreationForm.hpp"
-// #include "RobotomyRequestForm.hpp"
-// #include "PresidentialPardonForm.hpp"
-// #include "AForm.hpp"
-// #include <iostream>
-
-// int main() {
-//     Bureaucrat omar1("omar1", 1);  // Highest rank
-//     Bureaucrat omar2("omar2", 140); // Low rank
-//     try {
-//         std::cout << "\n--- Testing ShrubberyCreationForm ---\n";
-//         ShrubberyCreationForm shrubbery("home");
-//         std::cout << shrubbery << std::endl;
-
-//         // omar2 tries to sign but her grade is too low
-//         // omar2.signForm(shrubbery);
-//         // omar1 signs it
-//         omar1.signForm(shrubbery);
-//         // omar2 can't execute it
-//         // omar2.executeForm(shrubbery);
-//         // omar1 executes it
-//         omar1.executeForm(shrubbery);
-//     } catch (AForm::GradeTooHighException  &e) {
-//         std::cerr << e.what() << std::endl;
-//     } catch (AForm::GradeTooLowException  &e) {
-//         std::cerr << e.what() << std::endl;
-//     }
-    
-//     try{
-//         std::cout << "\n--- Testing RobotomyRequestForm ---\n";
-//         RobotomyRequestForm robotomy("omar1's brain");
-//         omar1.signForm(robotomy);
-//         omar1.executeForm(robotomy); // 50% success rate
-
-//         std::cout << "\n--- Testing PresidentialPardonForm ---\n";
-//         PresidentialPardonForm pardon("Zaphod Beeblebrox");
-//         omar1.signForm(pardon);
-//         omar1.executeForm(pardon);
-
-//     } catch (AForm::GradeTooHighException  &e) {
-//         std::cerr << e.what() << std::endl;
-//     } catch (AForm::GradeTooLowException  &e) {
-//         std::cerr << e.what() << std::endl;
-//     }
-
-//     return 0;
-// }
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -75,32 +26,32 @@ void testShrubbery() {
 
     // Try to execute unsigned form
     std::cout << "\n[Test 1] Execute unsigned form:\n";
-    highRanker.executeForm(form);
+    highRanker.executeAForm(form);
 
     // Low grade signing attempt
     std::cout << "\n[Test 2] Low grade signing:\n";
-    lowRanker.signForm(form);
+    lowRanker.signAForm(form);
 
     // Proper signing
     std::cout << "\n[Test 3] Valid signing:\n";
-    highRanker.signForm(form);
+    highRanker.signAForm(form);
 
     // Low grade execution
     std::cout << "\n[Test 4] Low grade execution:\n";
-    lowRanker.executeForm(form);
+    lowRanker.executeAForm(form);
 
     // Valid execution
     std::cout << "\n[Test 5] Valid execution:\n";
-    highRanker.executeForm(form);
+    highRanker.executeAForm(form);
     // [Test 6] Execute with unsigned form
     std::cout << "\n[Test 6] Execute unsigned form with valid grade:\n";
     ShrubberyCreationForm unsignedForm("backyard");
-    highRanker.executeForm(unsignedForm);
+    highRanker.executeAForm(unsignedForm);
 
     // [Test 7] Valid grade but wrong bureaucrat
     std::cout << "\n[Test 7] Valid grade but wrong executor:\n";
     Bureaucrat impostor("FakePresident", 1);
-    impostor.executeForm(form);  // Form signed by highRanker, executed by impostor
+    impostor.executeAForm(form);  // Form signed by highRanker, executed by impostor
 }
 
 void testRobotomy() {
@@ -108,14 +59,14 @@ void testRobotomy() {
     Bureaucrat surgeon("Dr. Robot", 1);
     RobotomyRequestForm form("Patient X");
 
-    surgeon.signForm(form);
+    surgeon.signAForm(form);
     
     // Test multiple executions to see different outcomes
     std::cout << "\n[Test 1] First execution:\n";
-    surgeon.executeForm(form);
+    surgeon.executeBForm(form);
     
     std::cout << "\n[Test 2] Second execution:\n";
-    surgeon.executeForm(form);
+    surgeon.executeBForm(form);
 }
 
 void testPresidentialPardon() {
@@ -126,17 +77,17 @@ void testPresidentialPardon() {
 
     // Clerk tries to sign and execute
     std::cout << "\n[Test 1] Clerk attempts:\n";
-    clerk.signForm(form);
-    clerk.executeForm(form);
+    clerk.signAForm(form);
+    clerk.executeCForm(form);
 
     // President signs but clerk executes
     std::cout << "\n[Test 2] Mixed execution:\n";
-    president.signForm(form);
-    clerk.executeForm(form);
+    president.signAForm(form);
+    clerk.executeCForm(form);
 
     // Valid execution
     std::cout << "\n[Test 3] Proper execution:\n";
-    president.executeForm(form);
+    president.executeCForm(form);
 }
 
 int main() {
