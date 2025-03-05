@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 22:42:05 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/04 22:42:08 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/03/05 02:48:43 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	}
 
 	// Write ASCII trees
-	file << "         🌲       " << std::endl;
-	file << "        🌲🌲      " << std::endl;
-	file << "       🌲🌲🌲       " << std::endl;
-	file << "      🌲🌲🌲🌲      " << std::endl;
-	file << "     🌲🌲🌲🌲🌲     " << std::endl;
-	file << "    🌲🌲🌲🌲🌲🌲    " << std::endl;
-	file << "   🌲🌲🌲🌲🌲🌲🌲   " << std::endl;
-	file << "         🌲         " << std::endl;
+	file << "         42🌲42       " << std::endl;
 
 	file.close();
 	std::cout << "Shrubbery has been planted in " << this->getName() << "_shrubbery" << std::endl;
