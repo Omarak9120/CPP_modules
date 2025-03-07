@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:31:52 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/05 15:31:56 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:20:12 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
 
 	Array& operator=(const Array& other) {
 		if (this != &other) {
-			delete[] elements;
+			delete[] elements;// Delete old memory
 
 			_size = other._size;
 			elements = (_size > 0) ? new T[_size]() : NULL;

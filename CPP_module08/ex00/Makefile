@@ -1,6 +1,6 @@
-NAME = 02
+NAME = 00
 
-SRCS = 	main.cpp \
+SRCS = 	main.cpp
 
 OBJDIR = objs
 OBJCS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
