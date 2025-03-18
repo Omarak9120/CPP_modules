@@ -3,13 +3,21 @@
 
 #include <vector>
 #include <deque>
-#include <algorithm>
-#include <ctime>
-#include <iterator>
-#include <set>
-#include <utility>
+#include <string>
+#include <map>
 
-void sort_deque(std::deque<int>& d);
-void sort_vector(std::vector<int>& v);
+class PmergeMe {
+public:
+    static void sort(std::vector<int>& numbers);
+    static void sort(std::deque<int>& numbers);
+
+private:
+    template <typename Container>
+    static void pairwise_swap(Container& container);
+    
+    static std::vector<int> generate_insertion_order(size_t pending_size);
+    template <typename Container>
+    static std::map<int, size_t> create_index_map(const Container& sorted);
+};
 
 #endif
