@@ -1,0 +1,48 @@
+🚩 General Idea of the Algorithm:
+The Ford-Johnson algorithm (also known as Merge-Insertion Sort) is an efficient sorting algorithm designed to minimize the number of comparisons. It works by:
+
+Pairing numbers and sorting each pair internally (small and large numbers).
+Sorting pairs by their larger numbers.
+Creating two separate lists:
+main_chain (larger numbers)
+pending (smaller numbers)
+Sorting the main_chain recursively.
+Inserting each pending element into the already sorted main_chain, in an optimized order (determined by the Jacobsthal sequence) to minimize comparisons.
+
+Step 1: Pairing & Sorting pairs
+
+Pairs elements from your input vector/deque.
+Ensures each pair has:
+	First element: Smaller number
+	Second element: Larger number
+If there's an odd element remaining, it's paired with -1 (treated separately).
+
+Step 2: Sorting pairs by their largest elements
+
+Sorts the pairs based on the larger element (the second in each pair).
+After sorting, the pairs are ordered by their largest numbers in ascending order.
+
+Step 3: Splitting into main_chain and pending lists
+After sorting pairs:
+	The larger elements form the main_chain.
+	The smaller elements form the pending list.
+partner_indices stores the index in main_chain where each corresponding pending number’s pair-partner is located.
+This is crucial: it limits future searches when inserting pending elements.
+
+Step 4: Recursively Sorting the Main Chain
+	Sort the larger elements (main_chain) recursively until fully sorted.
+	Eventually, you reach a base case (main_chain with ≤ 1 element).
+
+Step 5: Jacobsthal sequence for optimized insertion order
+
+This sequence determines an insertion order for the pending elements to minimize the number of comparisons.
+It inserts pending elements intelligently, avoiding unnecessary comparisons.
+
+ Step 6: Optimized insertion of pending elements	
+
+ Optimization: Instead of searching the entire main_chain, you only search up to the index of its partner element (which is guaranteed larger or equal), significantly reducing comparisons.
+After insertion, you must update indices (partner_indices) because elements shift positions, ensuring correctness for subsequent insertions.
+
+ Step 7: Final step - Swap sorted results back
+
+ After all insertions, the sorted result (main_chain) is swapped back into the original vector/deque.
