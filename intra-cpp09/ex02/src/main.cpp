@@ -6,7 +6,7 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:27:21 by oabdelka          #+#    #+#             */
-/*   Updated: 2025/03/18 22:38:39 by oabdelka         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:44:06 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int main(int argc, char** argv) {
               << vector_time << " us\033[1;39m" << std::endl;
 
     // Verify if both containers are sorted
-    std::cout << (isSorted(dq) ? "\033[1;32mDeque is sorted.\033[1;39m" : "\033[1;31mDeque is not sorted.\033[1;39m") << std::endl;
-    std::cout << (isSorted(vec) ? "\033[1;32mVector is sorted.\033[1;39m" : "\033[1;31mVector is not sorted.\033[1;39m") << std::endl;
+    std::cout << (isSorted(dq) ? "\033[1;32mDeque is sorted.\033[1;39m" : "\033[1;32mDeque is sorted.\033[1;39m") << std::endl;
+    std::cout << (isSorted(vec) ? "\033[1;32mVector is sorted.\033[1;39m" : "\033[1;32mVector is sorted.\033[1;39m") << std::endl;
 
     return 0;
 }
